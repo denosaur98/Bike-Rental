@@ -2,8 +2,8 @@
   position: relative;
   font-family: 'Roboto', sans-serif;
   font-style: normal; 
-  background: rgb(255,124,0);
-  background: radial-gradient(circle, rgba(255,124,0,1) 0%, rgba(255,244,0,1) 100%);
+  background: rgb(255,222,0);
+  background: linear-gradient(0deg, rgba(255,222,0,1) 42%, rgba(255,201,0,1) 61%);
   height: 100vh;
   display: flex;
   flex-direction: column;
