@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../assets/Montserrat.ttf');
+}
+.footer {
+  height: 50px;
+  width: 100%;
+  border-top: 1px solid #000;
+  font-family: 'Montserrat';
+}
+
+.link_container {
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+  margin-top: -2px;
+}
+
+.link {
+  font-weight: 800;
+  margin-top: 16px;
+}
+
+.link:hover {
+  color: rgb(255, 0, 0);
+  transition: 0.2s ease-in-out;
+}

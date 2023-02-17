@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../../assets/Montserrat.ttf');
+}
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat';
+  border-bottom: 2px solid #000;
+}
+
+.header {
+  display: flex;
+  margin-top: 9px;
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 22.8%;
+  margin-bottom: 10px;
+}
+
+.home {
+  margin-right: 60px;
+}
+
+.home:hover {
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+  transform: scale(1.03);
+  transition: 0.1s ease-in-out;
+}
+
+.workers {
+  margin-right: 60px;
+}
+
+.workers:hover {
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+  transform: scale(1.03);
+  transition: 0.1s ease-in-out;
+}
+
+.steal:hover {
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+  transform: scale(1.03);
+  transition: 0.1s ease-in-out;
+}
+
+.authorization {
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.entry:hover {
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+  transition: 0.1s ease-in-out;
+}
+
+.check_in:hover {
+  cursor: pointer;
+  color: rgb(255, 0, 0);
+  transition: 0.1s ease-in-out;
+}
