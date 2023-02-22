@@ -5,6 +5,7 @@ import css from "./FormEntry.module.css";
 function FormEntry(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleSignIn = (event) => {
     event.preventDefault();
@@ -18,9 +19,14 @@ function FormEntry(props) {
       .then((response) => {
         console.log(response.data);
         localStorage.setItem("token", response.data.token);
+        setFormSubmitted(true);
       })
       .catch((error) => console.log("error", error));
   };
+
+  if (formSubmitted) {
+    return null;
+  }
 
   return (
     <div className={css.form_modal}>
