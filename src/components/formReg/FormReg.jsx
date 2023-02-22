@@ -19,7 +19,7 @@ function FormReg(props) {
       password,
       firstName,
       lastName,
-      clientId: '27afcae6-a218-11ed-a8fc-0242ac120002',
+      clientId: '5e87a9e5-10d9-4a40-bc68-ae02e050dc14',
     };
   
     axios
