@@ -1,27 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import css from './FormReg.module.css';
 
-function OpenFormReg(props) {
-    return (
-        <div className={css.form_modal}>
-            <form className={css.form}>
-                <div className={css.cancel_container}>
-                    <div className={css.cancel} onClick={props.onClick}></div>
-                </div>
-                <p className={css.reg_headline}>РЕГИСТРАЦИЯ</p>
-                <div className={css.inputs}>
-                    <input type="text" placeholder="Имя:" className={css.reg_inps}/>
-                    <input type="text" placeholder="Фамилия:" className={css.reg_inps}/>
-                    <input type="text" placeholder="Почта:" className={css.reg_inps} required/>
-                    <input type="text" placeholder="Id:" className={css.reg_inps} required/>
-                    <input type="password" placeholder="Пароль:" className={css.reg_inps} required/>
-                </div>
-                <div className={css.buttons}>
-                    <button type="submit" className={css.submit}>Зарегистрироваться</button>
-                </div>
-            </form>
+const ERROR_STATUS = 'ERR';
+
+function FormReg(props) {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+
+  const handleReg = (e) => {
+    e.preventDefault();
+  
+    const body = {
+      email,
+      password,
+      firstName,
+      lastName,
+      clientId: '27afcae6-a218-11ed-a8fc-0242ac120002',
+    };
+  
+    axios
+      .post("https://sf-final-project-be.herokuapp.com/api/auth/sign_up", body)
+      .then((response) => {
+        if (response.data.status === ERROR_STATUS) {
+          setError(response.data.message);
+        } else {
+          console.log(response.data);
+          props.onClick();
+        }
+      })
+      .catch((error) => console.log("error", error));
+    };
+
+  return (
+    <div className={css.form_modal}>
+      <form className={css.form} onSubmit={handleReg}>
+        <div className={css.cancel_container}>
+          <div className={css.cancel} onClick={props.onClick}></div>
         </div>
-    );
+        <p className={css.reg_headline}>РЕГИСТРАЦИЯ</p>
+        <div className={css.inputs}>
+          <input
+            type="text"
+            placeholder="Имя:"
+            className={css.reg_inps}
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Фамилия:"
+            className={css.reg_inps}
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Почта:"
+            className={css.reg_inps}
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Пароль:"
+            className={css.reg_inps}
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        {error != null && <div>{error}</div>}
+        <div className={css.buttons}>
+          <button type="submit" className={css.submit}>Зарегистрироваться</button>
+        </div>
+      </form>
+    </div>
+  );
 }
 
-export default OpenFormReg;
+export default FormReg;

@@ -7,10 +7,11 @@
   position: relative;
   display: flex;
   justify-content: center;
+  height: 100%
 }
 
 .img {
-  margin-top: -110px;
+  margin-top: 7px;
   position: absolute;
   background-image: url('../../assets/bicycle.png');
   background-size: cover;
@@ -24,7 +25,7 @@
   display: flex;
   justify-content: center;
   background: none;
-  margin-top: 0px;
+  margin-top: 115px;
   font-family: 'Montserrat';
 }
 

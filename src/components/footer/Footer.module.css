@@ -2,7 +2,10 @@
   font-family: 'Montserrat';
   src: url('../../assets/Montserrat.ttf');
 }
+
 .footer {
+  position: fixed;
+  bottom: 0;
   height: 50px;
   width: 100%;
   border-top: 1px solid #000;
@@ -14,9 +17,11 @@
   justify-content: center;
   font-weight: 600;
   margin-top: -2px;
+  cursor: default;
 }
 
 .link {
+  cursor: pointer;
   font-weight: 800;
   margin-top: 16px;
 }
